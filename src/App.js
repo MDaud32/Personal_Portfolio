@@ -8,13 +8,18 @@ import {
   Work,
 } from './containers';
 
+import { Navbar } from './components';
+
+import './App.scss';
+
 const App = () => (
-  <div>
+  <div className="app">
+    <Navbar />
     <Header />
     <About />
     <Work />
-    <Testimonials />
     <Skills />
+    <Testimonials />
     <Footer />
   </div>
 );
