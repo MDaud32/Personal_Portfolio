@@ -1,6 +1,6 @@
 # Muhammad Daud - Personal Portfolio
 
-![Micael](https://i.ibb.co/fHPM38q/image.png)
+![m-daud](https://i.ibb.co/GCnnVy9/Screenshot-1.png)
 
 ## Introduction
 

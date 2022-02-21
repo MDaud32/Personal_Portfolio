@@ -32,7 +32,7 @@ export default function Navbar() {
             <HiX onClick={() => setToggle(false)} />
             <ul>
               {['home', 'about', 'contact', 'work', 'skills'].map((item) => (
-                <li key={{ item }}>
+                <li key={item}>
                   <a href={`#${item}`} onClick={() => setToggle(false)}>
                     {item}
                   </a>

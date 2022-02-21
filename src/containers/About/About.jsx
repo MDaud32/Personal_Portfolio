@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 import './About.scss';
 import { urlFor, client } from '../../client';
+import { AppWrap } from '../../wrapper';
 
 function About() {
   const [abouts, setAbouts] = useState([]);
@@ -27,8 +28,8 @@ function About() {
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: 'tween' }}
             className="app__profile-item"
-            key={about.title + index}
-          >
+            // eslint-disable-next-line react/jsx-closing-bracket-location
+            key={about.title + index}>
             <img src={urlFor(about.imgUrl)} alt={about.title} />
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}
@@ -43,4 +44,4 @@ function About() {
   );
 }
 
-export default About;
+export default AppWrap(About, 'about');
