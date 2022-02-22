@@ -4,7 +4,7 @@ import { FaFacebookF } from 'react-icons/fa';
 
 export default function SocialMedia() {
   return (
-    <div className="app__social">
+    <div className="app__social" style={{ justifyContent: 'flex-end' }}>
       <div>
         <BsTwitter />
       </div>
