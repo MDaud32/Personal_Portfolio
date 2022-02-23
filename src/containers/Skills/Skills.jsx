@@ -1,5 +1,5 @@
-/* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable comma-dangle */
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ReactTooltip from 'react-tooltip';
