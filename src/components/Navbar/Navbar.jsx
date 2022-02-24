@@ -1,8 +1,8 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 import React, { useState } from 'react';
 import './Navbar.scss';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
-import { images } from '../../constants';
 
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
@@ -10,10 +10,10 @@ export default function Navbar() {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={images.logo} alt="this is my profile logo" />
+        <h1>M_Daud</h1>
       </div>
       <ul className="app__navbar-links">
-        {['home', 'about', 'contact', 'work', 'skills'].map((item) => (
+        {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
           <li className="app__flex p-text " key={`link-${item}`}>
             <div />
             <a href={`#${item}`}>{item}</a>
@@ -27,8 +27,7 @@ export default function Navbar() {
         {toggle && (
           <motion.div
             whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.85, ease: 'easeOut' }}
-          >
+            transition={{ duration: 0.85, ease: 'easeOut' }}>
             <HiX onClick={() => setToggle(false)} />
             <ul>
               {['home', 'about', 'contact', 'work', 'skills'].map((item) => (
