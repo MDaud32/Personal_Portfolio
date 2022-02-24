@@ -1,10 +1,11 @@
 /* eslint-disable react/jsx-closing-bracket-location */
 import React, { useState } from 'react';
-import './Navbar.scss';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
-export default function Navbar() {
+import './Navbar.scss';
+
+const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -14,7 +15,7 @@ export default function Navbar() {
       </div>
       <ul className="app__navbar-links">
         {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
-          <li className="app__flex p-text " key={`link-${item}`}>
+          <li className="app__flex p-text" key={`link-${item}`}>
             <div />
             <a href={`#${item}`}>{item}</a>
           </li>
@@ -30,7 +31,7 @@ export default function Navbar() {
             transition={{ duration: 0.85, ease: 'easeOut' }}>
             <HiX onClick={() => setToggle(false)} />
             <ul>
-              {['home', 'about', 'contact', 'work', 'skills'].map((item) => (
+              {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
                 <li key={item}>
                   <a href={`#${item}`} onClick={() => setToggle(false)}>
                     {item}
@@ -43,4 +44,6 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
