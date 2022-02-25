@@ -19,14 +19,16 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-weight: bold;
+  font-size: 20px;
 
   img {
     width: 90px;
     height: 20px;
 
     @media screen and (min-width: 2000px) {
-      width: 180px;
-      height: 40px;
+      width: 200px;
+      height: 60px;
     }
   }
 }
@@ -90,7 +92,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--secondary-color);
+  background-color: gray;
 
   svg {
     width: 70%;
@@ -103,11 +105,11 @@
     top: 0;
     bottom: 0;
     right: 0;
-    z-index: 5;
+    z-index: 100;
 
     padding: 1rem;
 
-    width: 80%;
+    width: 60%;
     height: 100vh;
 
     display: flex;
