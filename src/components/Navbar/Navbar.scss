@@ -45,7 +45,7 @@
     margin: 0 1rem;
     cursor: pointer;
 
-    flex-direction: column;
+    flex-direction: row;
 
     div {
       width: 5px;
@@ -54,12 +54,13 @@
       border-radius: 50%;
 
       margin-bottom: 5px;
+      flex-direction: row;
     }
 
     a {
       color: var(--gray-color);
       text-decoration: none;
-      flex-direction: column;
+      flex-direction: row;
 
       text-transform: uppercase;
       font-weight: 500;

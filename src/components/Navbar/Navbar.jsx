@@ -1,49 +1,137 @@
 /* eslint-disable react/jsx-closing-bracket-location */
-import React, { useState } from 'react';
-import { HiMenuAlt4, HiX } from 'react-icons/hi';
+
+import React from 'react';
 import { motion } from 'framer-motion';
 
-import './Navbar.scss';
+import {
+  Box,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Button,
+  useDisclosure,
+  Text,
+  Link,
+  Flex,
+} from '@chakra-ui/react';
 
-const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
+import { HiMenu } from 'react-icons/hi';
+
+function Navbar() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const btnRef = React.useRef();
 
   return (
-    <nav className="app__navbar">
-      <div className="app__navbar-logo">
-        <h1>M_Daud</h1>
-      </div>
-      <ul className="app__navbar-links">
-        {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
-          <li className="app__flex p-text" key={`link-${item}`}>
-            <div />
-            <a href={`#${item}`}>{item}</a>
-          </li>
-        ))}
-      </ul>
+    <Box
+      position="fixed"
+      zIndex={30}
+      w="100%"
+      h="20"
+      p={6}
+      bg="gray.100"
+      display="flex"
+      flexDirection="row"
+      justifyContent="space-between "
+      alignItems="center">
+      <Text fontSize="3xl" alignItems="center">
+        M_Daud
+      </Text>
 
-      <div className="app__navbar-menu">
-        <HiMenuAlt4 onClick={() => setToggle(true)} />
+      <Box
+        w="full"
+        display={{
+          base: 'none',
+          xl: 'flex',
+          md: 'flex',
+          sm: 'none',
+        }}>
+        <Flex
+          flexDirection="row"
+          flex="1"
+          alignItems="center"
+          justifyContent="center">
+          {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
+            <Box
+              m={4}
+              key={`link-${item}`}
+              fontSize={18}
+              color="gray.600"
+              textTransform="uppercase">
+              <motion.div whileHover={{ y: -4 }}>
+                <Link textDecoration="none" href={`#${item}`}>
+                  {item}
+                </Link>
+              </motion.div>
+            </Box>
+          ))}
+        </Flex>
+      </Box>
 
-        {toggle && (
-          <motion.div
-            whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.85, ease: 'easeOut' }}>
-            <HiX onClick={() => setToggle(false)} />
-            <ul>
+      <Box
+        display={{
+          base: 'flex',
+          xl: 'none',
+          md: 'none',
+          sm: 'flex',
+        }}>
+        <Button
+          ref={btnRef}
+          onClick={onOpen}
+          flexDirection="flex-end"
+          size="md"
+          _focus="none"
+          _hover={{ bg: 'blue.300' }}>
+          <HiMenu />
+        </Button>
+
+        <Drawer
+          isOpen={isOpen}
+          placement="bottom"
+          size="sm"
+          onClose={onClose}
+          finalFocusRef={btnRef}>
+          <DrawerOverlay />
+
+          <DrawerContent>
+            <DrawerCloseButton
+              onClose={onClose}
+              _focus="none"
+              _hover={{ bg: 'blue.300' }}
+            />
+
+            <DrawerBody>
               {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
-                <li key={item}>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>
-                    {item}
-                  </a>
-                </li>
+                <Box
+                  alignItems="center"
+                  justifyContent="flex-start"
+                  p={4}
+                  textTransform="uppercase"
+                  key={`link-${item}`}>
+                  <motion.div whileHover={{ x: -6 }}>
+                    <Link href={`#${item}`}>{item}</Link>
+                  </motion.div>
+                </Box>
               ))}
-            </ul>
-          </motion.div>
-        )}
-      </div>
-    </nav>
+            </DrawerBody>
+
+            <DrawerFooter>
+              <Button
+                variant="outline"
+                mr={3}
+                onClick={onClose}
+                _hover={{ bg: 'blue.300' }}>
+                Cancel
+              </Button>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+      </Box>
+    </Box>
   );
-};
+}
 
 export default Navbar;
