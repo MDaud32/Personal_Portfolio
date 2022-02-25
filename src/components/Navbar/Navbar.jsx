@@ -37,7 +37,10 @@ function Navbar() {
       flexDirection="row"
       justifyContent="space-between "
       alignItems="center">
-      <Text fontSize="3xl" alignItems="center">
+      <Text
+        fontSize={{ base: '2xl', lg: '3xl', xl: '3xl' }}
+        alignItems="center"
+        fontWeight="bold">
         M_Daud
       </Text>
 
@@ -59,10 +62,11 @@ function Navbar() {
               m={4}
               key={`link-${item}`}
               fontSize={18}
+              onClose={onClose}
               color="gray.600"
               textTransform="uppercase">
               <motion.div whileHover={{ y: -4 }}>
-                <Link textDecoration="none" href={`#${item}`}>
+                <Link _focus="none" textDecoration="none" href={`#${item}`}>
                   {item}
                 </Link>
               </motion.div>
@@ -82,7 +86,7 @@ function Navbar() {
           ref={btnRef}
           onClick={onOpen}
           flexDirection="flex-end"
-          size="md"
+          size="lg"
           _focus="none"
           _hover={{ bg: 'blue.300' }}>
           <HiMenu />
@@ -112,7 +116,9 @@ function Navbar() {
                   textTransform="uppercase"
                   key={`link-${item}`}>
                   <motion.div whileHover={{ x: -6 }}>
-                    <Link href={`#${item}`}>{item}</Link>
+                    <Link _focus="none" href={`#${item}`}>
+                      {item}
+                    </Link>
                   </motion.div>
                 </Box>
               ))}
@@ -124,7 +130,7 @@ function Navbar() {
                 mr={3}
                 onClick={onClose}
                 _hover={{ bg: 'blue.300' }}>
-                Cancel
+                Close
               </Button>
             </DrawerFooter>
           </DrawerContent>
