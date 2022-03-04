@@ -55,8 +55,8 @@ function Footer() {
         </div>
         <div className="app__footer-card">
           <img src={images.mobile} alt="phone" />
-          <a href="tel:+1 (123) 456-7890" className="p-text">
-            +1 (123) 456-7890
+          <a href="tel:+923110996573" className="p-text">
+            +923110996573
           </a>
         </div>
       </div>
